@@ -1,80 +1,144 @@
-#nav-logo{
-    width: 90pt;
-    height: 90pt;
-
-
-}
-nav{
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  
+  nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    min-height: 10px;
-    background-color: rgb(72, 245, 101);
-    font-family: 'Archivo Narrow', sans-serif;
-}
-h1{
-    color: rgb(75, 104, 47);
-    font-style: italic;
+    min-height: 8vh;
+    background-color: rgb(44, 190, 31);
+    font-family: "Poppins", sans-serif;
+  }
+  .logo {
+    color: rgb(48, 133, 81);
     text-transform: uppercase;
-    font-size: 30px;
-    letter-spacing: 20px;
+    letter-spacing: 5px;
+    font-size: 20px;
+    display: flex;
+    
+  }
 
+.logo-text{
+    margin-left: 20px;
+    padding-top: 30px;
 }
-.nav-links{
+  .nav-links {
     display: flex;
     justify-content: space-around;
-    align-items: center;
     width: 40%;
-    
-}
-.nav-links li{
-    list-style: none;
-    
-    
-}
-.nav-links a{
-    color: rgb(34, 128, 70);
+  }
+  
+  .nav-links li {
+    list-style-type: none;
+  }
+  
+  .nav-links a {
+    color: rgb(242, 248, 244);
     text-decoration: none;
-
-}
-.burger div{
-    width: 30px;
-    height: 5px;
-    background-color: rgb(28, 145, 106);
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-style: 14px;
+  }
+  
+  .burger div {
+    width: 25px;
+    height: 3px;
+    background-color: rgb(226, 226, 226);
     margin: 5px;
-
-
-}
-.burger{
+    transition: all 0.3s ease;
+  }
+  
+  .burger {
     display: none;
     cursor: pointer;
-}
-
-/* this code is for mobile view */
-@media screen and (max-width:768px){
-    body{
-        /* display: none; */
-        overflow-x: hidden;
-        
+  }
+  
+  .image {
+    height: 100px;
+    width: 70px;
+    margin-right: 20px;
+  }
+  /* TABLET */
+  @media screen and (max-width: 768px) {
+    .nav-links {
+      width: 60%;
     }
-    .nav-links{
-        position: absolute;
-        right: 0px;
-        height: 92vh;
-        top: 8vh;
-        background-color: rgb(72, 245, 101);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 30%;
-        transform: translateX(100%);
-        transition: transform 0.5s ease-in;
-
+  }
+  
+  /* MOBILE */
+  @media screen and (max-width: 768px) {
+    /* test it with: body{
+          display:none;
+      } */
+  
+    body {
+      overflow-x: hidden;
     }
-    .nav-links li{
-        opacity: 0;
+  
+    /* WHAT SHOULD HAPPEN TO THE NAV-LINKS WHEN WE GET TO MOBILE */
+    .nav-links {
+      position: absolute;
+      right: 0px;
+      height: 92vh;
+      top: 8vh;
+      background-color: rgb(38, 150, 94);       
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 50%;
+      transform: translateX(100%);
+      transition: transform 0.5s ease-in;
     }
-    .burger{
-        display: block;
+    /* i want the nav bar lists not to show, so that when we click on the burger icon it slowly fades in */
+    .nav-links li {
+      opacity: 0;
     }
-}
+  
+    .burger {
+      display: block;
+    }
+  }
+  /* add image as logo */
+  #logo-image {
+    float: left;
+    width: 20px;
+    height: 15px;
+    margin-right: 10px;
+  }
+  
+  .nav-active {
+    transform: translateX(0%);
+  }
+  
+  /* now what we have to do is to animate the list into the humburger menu
+  ...so lets build an animation
+  */
+  
+  @keyframes navLinkFade {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+  
+  /* this is the last code to add. After all is said and done */
+  .toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  
+  .toggle .line2 {
+    opacity: 0;
+  }
+  
+  .toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+  
