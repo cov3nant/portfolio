@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notes</title>
+    <link rel="stylesheet" href="./style.css">
     <style>
         *{
             padding: 0px;
@@ -21,21 +22,80 @@
             text-align: center;
         }
         .dates{
-            background-color: rgb(202, 39, 53);
+            background-color: rgb(44, 190, 31);
             color: white;
             width: 100%;
             border-radius: 16px;
             padding: 17px;
             margin: auto;
             margin-top: 15px;
+            transition: 0.4s;
+            display: inline-block;
         }
-    
+        .notes{
+            padding: 0px 16px;
+            margin: 10px;
+            background-color: whitesmoke;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        @media screen and (max-width: 768px) {
+    .all {
+      width: 100%;
+      margin: 0;
+      
+    }
+  }
+  .dates::after{
+      content: "\1401";
+      padding-left: 100%;
+  }
+
+  .active::after{
+      content: "\1403";
+  }
+  .active,
+  .dates:hover{
+      background-color:rgb(28, 102, 59);
+  }
     </style>
 </head>
 <body>
+    <nav>
+        <div class="logo">
+          <img class="image" src="./IMAGES/Group 2.png" alt="" />
+          <h4 class="logo-text">Believe</h4>
+        </div>
+  
+        <ul class="nav-links">
+          <li>
+            <a href="index.html">HOME</a>
+          </li>
+          <li>
+            <a href="#">ABOUT</a>
+          </li>
+          <li>
+            <a href="#">PROJECTS</a>
+          </li>
+          <li>
+            <a href="./assignment.html">ASSIGNMENTS</a>
+          </li>
+          <li>
+            <a href="./notes.html">LESSONS</a>
+          </li>
+        </ul>
+  
+        <div class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+      </nav>
+    
     <div class="all">
         <div class="heading">
-            <h2> this is the headind</h2>
+            <h2> &#x1f56e; this is the heading</h2>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla architecto optio ea sit officiis vitae maxime et eaque ad temporibus tenetur rerum accusantium, veniam aliquam reiciendis corrupti omnis voluptatum consequatur.</p>
         </div>
         
@@ -51,9 +111,9 @@
        
         <br>
         <button class="dates">
-            day 1
+            day 2
             <br>
-            Wednesday 20th
+            Thursday 21th
         </button>
             <div class="notes">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, pariatur. Necessitatibus quae iusto, non deleniti accusantium minima! Eos incidunt maxime consequuntur suscipit? Reprehenderit id eius quisquam neque fuga quidem tenetur ut accusantium alias dicta quas architecto dolore distinctio rerum ad dignissimos numquam eos, explicabo repudiandae eligendi quia reiciendis. Eligendi, est.</p>
@@ -62,9 +122,9 @@
         
         <br>
         <button class="dates">
-            day 1
+            day 3
             <br>
-            Wednesday 20th
+            Friday 22th
         </button>
             <div class="notes">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores maxime, veniam laboriosam sequi libero, quo distinctio totam magnam quas vero deleniti laudantium accusantium. Et accusantium cumque obcaecati eveniet esse, quaerat sed nihil odio numquam, commodi dignissimos atque necessitatibus at delectus est non voluptatibus ut architecto debitis nostrum! Excepturi, laborum consequatur!</p>
@@ -72,5 +132,24 @@
             </div>
         
     </div>
+
+    
+    <script>
+        var acc = document.getElementsByClassName("dates");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function(){
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else{
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+    <script src="./app.js"></script>
 </body>
 </html>

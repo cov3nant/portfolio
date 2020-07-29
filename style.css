@@ -13,7 +13,7 @@
     font-family: "Poppins", sans-serif;
   }
   .logo {
-    color: rgb(48, 133, 81);
+    color: rgb(46, 107, 41);
     text-transform: uppercase;
     letter-spacing: 5px;
     font-size: 20px;
@@ -84,7 +84,7 @@
       right: 0px;
       height: 92vh;
       top: 8vh;
-      background-color: rgb(38, 150, 94);       
+      background-color: rgb(44, 190, 31);       
       display: flex;
       flex-direction: column;
       align-items: center;
